@@ -14,7 +14,11 @@ J = 0;
 %               You should set J to the cost.
 
 
-
+prediction = X * theta;
+cost = prediction - y;
+squaredCost = cost .^ 2;
+sumSquaredCost = sum(squaredCost);
+J = (1 / (2 * m)) * sumSquaredCost;
 
 
 % =========================================================================
