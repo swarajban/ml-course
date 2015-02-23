@@ -16,10 +16,15 @@ p = zeros(m, 1);
 %
 
 
-
-
-
-
+for i = 1 :m,
+  row = X(i,:); % [xi0 xi1 xi2]
+  prediction = sigmoid(row * theta); % htheta(xi)
+  if (prediction >= 0.5)
+    p(i) = 1;
+  else
+    p(i) = 0;
+  end
+end
 
 % =========================================================================
 

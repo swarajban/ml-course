@@ -20,12 +20,21 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+for i = 1 :m,
+  row = X(i,:); % [xi0 xi1 xi2]
+  prediction = sigmoid(row * theta); % htheta(xi)
+  actual = y(i); % yi
 
+  % Cost Function
+  J += (-actual * log(prediction)) - ((1 - actual) * log(1 - prediction));
 
+  % Gradient
+  cost = prediction - actual;
+  grad += cost * row';
+end
 
-
-
-
+J /= m; 
+grad /= m;
 
 % =============================================================
 
